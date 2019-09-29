@@ -13,7 +13,6 @@ class Scraper
       student.profile_url = person.css('a[href]')
       student
     }
-    student
   end
 
   def self.scrape_profile_page(profile_url)
