@@ -24,6 +24,8 @@ class Scraper
       profile = {}
       profile[:twitter] = student.css('a[href*="twitter"]').attribute("href").value if student.css('a[href*="twitter"]')
       profile[:linkedin] = student.css('a[href*="linkedin"]').attribute("href").value if student.css('a[href*="linkedin"]')
+      profile[:github] = student.css('a[href*="github"]').attribute("href").value if student.css('a[href*="github"]')
+      profile[:linkedin] = student.css('a[href*="linkedin"]').attribute("href").value if student.css('a[href*="linkedin"]')
       p profile
       profiles << profile
     }
