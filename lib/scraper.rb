@@ -10,8 +10,7 @@ class Scraper
       student = Student.new
       student.name = person.css("h4.student-name").text
       student.location = person.css("p.student-location").text
-      student.profile_url = person.xpath('//student-card/a/@href').text.strip
-      p person
+      student.profile_url = person.css('a[href^=".html"]').text
     }
   end
 
