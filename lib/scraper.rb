@@ -22,10 +22,17 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
     doc.css("div.profile").each {|student|
       profile = {}
-      profile[:twitter] = student.css('a[href*="twitter"]').attribute("href").value if student.css('a[href*="twitter"]')
-      profile[:linkedin] = student.css('a[href*="linkedin"]').attribute("href").value if student.css('a[href*="linkedin"]')
-      profile[:github] = student.css('a[href*="github"]').attribute("href").value if student.css('a[href*="github"]')
-      profile[:blog] = student.css('a').attribute("href").value 
+      profile.css("div.main-wrapper.profile .social-icon-container a").each { |link|
+      if link.attribute("href").value.include?("twitter")
+        profile[:twitter] = student.css('a[href*="twitter"]').attribute("href").value if student.css('a[href*="twitter"]')
+      elsif link.attribute("href").value.include?("linkedin")
+        profile[:linkedin] = student.css('a[href*="linkedin"]').attribute("href").value if student.css('a[href*="linkedin"]')
+      elsif link.attribute("href").value.include?("github")
+        profile[:github] = student.css('a[href*="github"]').attribute("href").value if student.css('a[href*="github"]')
+      else
+        profile[:blog] = student.css('a').attribute("href").value 
+      end
+      }
       profile[:profile_quote] = student.css('div.profile-quote').text
       profile[:bio] =student.css('div.description-holder p').text
       p profile
