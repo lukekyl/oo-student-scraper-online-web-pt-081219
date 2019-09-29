@@ -10,7 +10,7 @@ class Scraper
       student = Student.new
       student.name = person.css("h4.student-name").text
       student.location = person.css("p.student-location").text
-      student.profile_url = person.css('a[href$=html]').value
+      student.profile_url = person.css('a[href$=html]').first-child
       p "#{student.name} #{student.location} #{student.profile_url}"
     }
   end
