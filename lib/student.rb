@@ -4,8 +4,8 @@ class Student
 
   @@all = []
 
-  def initialize(student_hash)
-    
+  def initialize
+    @@all << self
   end
 
   def self.create_from_collection(students_array)
