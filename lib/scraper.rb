@@ -27,11 +27,11 @@ class Scraper
 
       profile.css("div.main-wrapper.profile .social-icon-container a").each { |link|
       if link.attribute("href").value.include?("twitter")
-        profile[:twitter] = link.attribute("href").value if student.css('a[href*="twitter"]')
+        profile[:twitter] = link.attribute("href").value
       elsif link.attribute("href").value.include?("linkedin")
-        profile[:linkedin] = link.attribute("href").value if student.css('a[href*="linkedin"]')
+        profile[:linkedin] = link.attribute("href").value
       elsif link.attribute("href").value.include?("github")
-        profile[:github] = link.attribute("href").value if student.css('a[href*="github"]')
+        profile[:github] = link.attribute("href").value
       else
         profile[:blog] = link.attribute("href").value
       end
