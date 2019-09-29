@@ -30,7 +30,7 @@ class Scraper
       elsif link.attribute("href").value.include?("github")
         profile[:github] = student.css('a[href*="github"]').attribute("href").value if student.css('a[href*="github"]')
       else
-        profile[:blog] = student.css('a').attribute("href").value 
+        profile[:blog] = student.css('a').attribute("href").value
       end
       }
       profile[:profile_quote] = student.css('div.profile-quote').text
