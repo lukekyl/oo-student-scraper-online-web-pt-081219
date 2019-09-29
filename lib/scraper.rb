@@ -18,9 +18,7 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    profiles = []
-    doc = Nokogiri::HTML(open(profile_url))
-    doc.css("div.profile").each {|student|
+    student = Nokogiri::HTML(open(profile_url))
       profile = {}
       profile[:profile_quote] = student.css('div.profile-quote').text
       profile[:bio] =student.css('div.description-holder p').text
@@ -37,9 +35,7 @@ class Scraper
       end
       }
       p profile
-      profiles << profile
-    }
-    profiles
+      profile
   end
 
 end
