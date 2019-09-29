@@ -22,7 +22,7 @@ class Scraper
     doc = Nokogiri::HTML(open(profile_url))
     doc.css("div.vitals-container").each {|student|
       profile = {}
-      profile[:twitter] = student.css("a").attribute("href").value
+      profile[:twitter] = student.css("a").attribute("href").value if student.css.include?("a[href*="w3schools"]")
       p profile
       profiles << profile
     }
