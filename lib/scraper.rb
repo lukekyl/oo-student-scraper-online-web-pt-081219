@@ -23,7 +23,7 @@ class Scraper
     doc.css("div.vitals-container").each {|student|
       profile = {}
       profile[:twitter] = student.css("a").attribute('[href^=students]').value
-
+      p profile
       profiles << profile
     }
     profiles
