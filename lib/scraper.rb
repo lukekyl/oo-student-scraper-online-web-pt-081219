@@ -25,7 +25,7 @@ class Scraper
       profile[:profile_quote] = student.css('div.profile-quote').text
       profile[:bio] =student.css('div.description-holder p').text
 
-      profile.css("div.main-wrapper.profile .social-icon-container a").each { |link|
+      student.css("div.main-wrapper.profile .social-icon-container a").each { |link|
       if link.attribute("href").value.include?("twitter")
         profile[:twitter] = link.attribute("href").value
       elsif link.attribute("href").value.include?("linkedin")
