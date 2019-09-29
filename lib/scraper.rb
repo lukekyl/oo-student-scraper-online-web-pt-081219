@@ -34,7 +34,6 @@ class Scraper
         profile[:blog] = link.attribute("href").value
       end
       }
-      p profile
       profile
   end
 
