@@ -4,7 +4,7 @@ class Student
 
   @@all = []
 
-  def initialize
+  def initialize#(#studen_hash)
     @@all << self
   end
 
