@@ -24,7 +24,7 @@ class Scraper
       profile = {}
       profile[:profile_quote] = student.css('div.profile-quote').text
       profile[:bio] =student.css('div.description-holder p').text
-      
+
       profile.css("div.main-wrapper.profile .social-icon-container a").each { |link|
       if link.attribute("href").value.include?("twitter")
         profile[:twitter] = student.css('a[href*="twitter"]').attribute("href").value if student.css('a[href*="twitter"]')
@@ -36,7 +36,6 @@ class Scraper
         profile[:blog] = student.css('a').attribute("href").value
       end
       }
-
       p profile
       profiles << profile
     }
