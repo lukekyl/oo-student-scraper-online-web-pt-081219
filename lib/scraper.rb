@@ -27,7 +27,7 @@ class Scraper
       profile[:github] = student.css('a[href*="github"]').attribute("href").value if student.css('a[href*="github"]')
       profile[:blog] = student.css('a').attribute("href").value if !student.css('a[href*="linkedin"]') && !student.css('a[href*="twitter"]') && !student.css('a[href*="github"]')
       profile[:profile_quote] = student.css('div.profile-quote').text
-      profile[:bio] =student.css('div.bio-content description-holder p').text
+      profile[:bio] =student.css('div.bio-content p').text
       p profile
       profiles << profile
     }
