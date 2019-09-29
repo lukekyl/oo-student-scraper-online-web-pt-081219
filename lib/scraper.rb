@@ -18,7 +18,15 @@ class Scraper
   end
 
   def self.scrape_profile_page(profile_url)
-    
+    profiles = []
+    doc = Nokogiri::HTML(open(profile_url))
+    doc.css("div.student-card").each {|person|
+      profile = {}
+      profile[:name] = person.css("h4.student-name").text
+
+      profiles << profile
+    }
+    profiles
   end
 
 end
